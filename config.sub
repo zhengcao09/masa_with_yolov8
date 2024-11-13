@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH -J masa# Job name
+#SBATCH -o masa_%j.out       # output file (%j expands to jobID)
+#SBATCH -e masa_%j.err       # error log file (%j expands to jobID)
+#SBATCH --mail-type=ALL                      # Request status by email 
+#SBATCH --mail-user=zc494@cornell.edu        # Email address to send results to.
+#SBATCH -N 1                                 # Total number of nodes requested
+#SBATCH -n 8                                 # Total number of cores requested
+#SBATCH --get-user-env                       # retrieve the users login environment
+#SBATCH --mem=64000                           # server memory requested (per node)
+#SBATCH -t 50:00:00                          # Time limit (hh:mm:ss)
+#SBATCH --partition=default_partition		# Request partition
+#SBATCH --gres=gpu:1
+/home/zc494/masa/script.sh
